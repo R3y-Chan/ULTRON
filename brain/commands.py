@@ -70,4 +70,29 @@ def check_command(text):
             "data": None
         }
 
+    # Time
+    if text in [
+        "what time is it",
+        "what's the time",
+        "tell me the time",
+        "current time"
+    ]:
+        return {
+            "command": "get_time",
+            "data": None
+        }
+    # Weather
+    if text in [
+        "weather",
+        "what's the weather",
+        "what is the weather",
+        "tell me the weather",
+        "how's the weather",
+        "how is the weather"
+    ]:
+        return {
+            "command": "get_weather",
+            "data": None
+        }
+
     return None

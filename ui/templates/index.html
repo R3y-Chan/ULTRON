@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ULTRON</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="hud">
+
+    <!-- TOP BAR -->
+    <header>
+        <div class="system-name">
+            <span class="dot"></span>
+            ULTRON CORE SYSTEM
+        </div>
+
+        <div class="assistant-title">
+            <h1>ULTRON</h1>
+            <p>PERSONAL ASSISTANT</p>
+        </div>
+
+        <div class="clock">
+            <div id="time">00:00:00</div>
+            <small id="date">00 SEP 0000</small>
+        </div>
+    </header>
+
+
+    <!-- LEFT SIDE -->
+
+    <aside class="left-panel">
+
+        <section class="panel">
+            <h2>SYSTEM STATUS</h2>
+
+            <div class="status-row">
+                <span>CORE</span>
+                <b>ONLINE</b>
+            </div>
+
+            <div class="status-row">
+                <span>SPEECH</span>
+                <b>ONLINE</b>
+            </div>
+
+            <div class="status-row">
+                <span>AUDIO</span>
+                <b>ONLINE</b>
+            </div>
+
+            <div class="status-row">
+                <span>NETWORK</span>
+                <b>ONLINE</b>
+            </div>
+        </section>
+
+
+        <section class="panel">
+            <h2>ACTIVE MODULES</h2>
+
+            <p>● VOICE RECOGNITION</p>
+            <p>● NATURAL LANGUAGE</p>
+            <p>● AUDIO ENGINE</p>
+            <p>● MEMORY CORE</p>
+            <p>● COMMAND SYSTEM</p>
+        </section>
+
+
+        <section class="panel log">
+            <h2>SYSTEM LOG</h2>
+
+            <p>19:41:56 System boot successful</p>
+            <p>19:41:58 Core systems online</p>
+            <p>19:41:59 Speech module online</p>
+            <p>19:42:00 Audio engine online</p>
+            <p>19:42:08 ULTRON ready</p>
+        </section>
+
+    </aside>
+
+
+    <!-- CENTRAL CORE -->
+
+    <main>
+
+        <div class="core-wrapper">
+
+            <div class="orbit orbit-outer"></div>
+            <div class="orbit orbit-middle"></div>
+            <div class="orbit orbit-inner"></div>
+
+            <div class="core-ring ring-one"></div>
+            <div class="core-ring ring-two"></div>
+
+            <div class="core">
+                <div class="core-inner"></div>
+            </div>
+
+        </div>
+
+
+        <div class="state">
+            <span>◀</span>
+            <strong id="state">IDLE</strong>
+            <span>▶</span>
+        </div>
+
+        <div class="sub-state" id="message">
+            STANDING BY
+        </div>
+
+
+        <!-- WAVEFORM -->
+
+        <div class="wave">
+
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+
+        </div>
+
+        <div class="awaiting">
+            AWAITING COMMAND
+        </div>
+
+    </main>
+
+
+    <!-- RIGHT SIDE -->
+
+    <aside class="right-panel">
+
+        <section class="panel current">
+            <h2>CURRENT STATUS</h2>
+
+            <div class="mini-line"></div>
+
+            <strong id="right-state">IDLE</strong>
+
+            <p id="right-message">STANDING BY</p>
+        </section>
+
+
+        <section class="panel">
+            <h2>VOICE INPUT</h2>
+
+            <div class="small-wave">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </section>
+
+
+        <section class="panel">
+            <h2>RESPONSE OUTPUT</h2>
+
+            <div class="output-bars">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </section>
+
+    </aside>
+
+</div>
+
+<script src="/static/script.js"></script>
+
+</body>
+</html>

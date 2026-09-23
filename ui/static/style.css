@@ -1,0 +1,703 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --gold: #ffbf22;
+    --bright-gold: #ffe28a;
+    --dark-gold: #8a6100;
+    --bg: #030303;
+}
+
+body {
+    margin: 0;
+    background:
+        radial-gradient(
+            circle at center,
+            #1b1404 0%,
+            #080703 35%,
+            #020202 75%
+        );
+
+    color: var(--gold);
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   HUD
+========================= */
+
+.hud {
+    width: 100vw;
+    height: 100vh;
+
+    min-width: 1100px;
+
+    position: relative;
+
+    padding: 25px 40px;
+
+    border: 1px solid #5f4300;
+
+    box-shadow:
+        inset 0 0 80px rgba(255, 170, 0, 0.04),
+        0 0 40px rgba(255, 170, 0, 0.08);
+}
+
+
+/* =========================
+   TOP
+========================= */
+
+header {
+    height: 80px;
+
+    display: grid;
+
+    grid-template-columns: 1fr auto 1fr;
+
+    align-items: start;
+}
+
+.system-name {
+    font-size: 14px;
+
+    letter-spacing: 2px;
+
+    margin-top: 10px;
+}
+
+.dot {
+    display: inline-block;
+
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: var(--gold);
+
+    box-shadow: 0 0 12px var(--gold);
+
+    margin-right: 8px;
+}
+
+.assistant-title {
+    text-align: center;
+}
+
+.assistant-title h1 {
+    margin: 0;
+
+    font-size: 38px;
+
+    font-weight: 300;
+
+    letter-spacing: 7px;
+
+    text-shadow:
+        0 0 10px var(--gold),
+        0 0 25px rgba(255, 180, 0, 0.4);
+}
+
+.assistant-title p {
+    margin: 2px 0;
+
+    font-size: 12px;
+
+    letter-spacing: 4px;
+}
+
+.clock {
+    text-align: right;
+}
+
+#time {
+    font-size: 30px;
+
+    letter-spacing: 2px;
+}
+
+.clock small {
+    opacity: 0.6;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================
+   PANELS
+========================= */
+
+.left-panel,
+.right-panel {
+    position: absolute;
+
+    top: 145px;
+
+    width: 230px;
+}
+
+.left-panel {
+    left: 40px;
+}
+
+.right-panel {
+    right: 40px;
+}
+
+.panel {
+    position: relative;
+
+    margin-bottom: 28px;
+
+    padding: 18px;
+
+    border: 1px solid rgba(255, 190, 30, 0.45);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 180, 0, 0.05),
+            rgba(0, 0, 0, 0.4)
+        );
+
+    clip-path: polygon(
+        0 12px,
+        12px 0,
+        100% 0,
+        100% calc(100% - 12px),
+        calc(100% - 12px) 100%,
+        0 100%
+    );
+
+    box-shadow:
+        inset 0 0 20px rgba(255, 180, 0, 0.03);
+}
+
+.panel h2 {
+    margin: 0 0 18px;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    font-weight: 500;
+}
+
+.status-row {
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 6px 0;
+
+    font-size: 11px;
+
+    border-bottom: 1px dotted rgba(255, 190, 30, 0.2);
+}
+
+.status-row b {
+    font-weight: 400;
+}
+
+.panel p {
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+    opacity: 0.8;
+}
+
+.log p {
+    font-size: 9px;
+
+    margin: 8px 0;
+}
+
+
+/* =========================
+   CORE
+========================= */
+
+main {
+    position: absolute;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform: translate(-50%, -43%);
+
+    width: 620px;
+
+    text-align: center;
+}
+
+.core-wrapper {
+    width: 480px;
+    height: 480px;
+
+    margin: auto;
+
+    position: relative;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+
+/* orbit rings */
+
+.orbit {
+    position: absolute;
+
+    border: 1px solid rgba(255, 190, 30, 0.35);
+
+    border-radius: 50%;
+}
+
+.orbit-outer {
+    width: 470px;
+    height: 470px;
+
+    animation: rotate 30s linear infinite;
+}
+
+.orbit-middle {
+    width: 390px;
+    height: 390px;
+
+    border-style: dashed;
+
+    animation: rotateReverse 20s linear infinite;
+}
+
+.orbit-inner {
+    width: 315px;
+    height: 315px;
+
+    animation: rotate 12s linear infinite;
+}
+
+
+/* core rings */
+
+.core-ring {
+    position: absolute;
+
+    border-radius: 50%;
+
+    border: 2px solid var(--gold);
+
+    box-shadow:
+        0 0 15px rgba(255, 190, 30, 0.5),
+        inset 0 0 15px rgba(255, 190, 30, 0.15);
+}
+
+.ring-one {
+    width: 260px;
+    height: 260px;
+
+    animation: pulse 3s ease-in-out infinite;
+}
+
+.ring-two {
+    width: 190px;
+    height: 190px;
+
+    border-color: var(--bright-gold);
+
+    animation: pulse 2s ease-in-out infinite reverse;
+}
+
+
+/* core */
+
+.core {
+    width: 125px;
+    height: 125px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #fff3a8 0%,
+            #ffd04a 12%,
+            #ffad00 30%,
+            #7c4d00 58%,
+            #080500 75%
+        );
+
+    box-shadow:
+        0 0 20px #ffb300,
+        0 0 50px #ff9d00,
+        0 0 100px rgba(255, 170, 0, 0.5);
+
+    animation: corePulse 2.2s ease-in-out infinite;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.core-inner {
+    width: 35px;
+    height: 35px;
+
+    border-radius: 50%;
+
+    background: #fff6bd;
+
+    box-shadow:
+        0 0 20px white,
+        0 0 50px #ffc400;
+}
+
+
+/* =========================
+   STATE
+========================= */
+
+.state {
+    margin-top: -10px;
+
+    font-size: 24px;
+
+    letter-spacing: 7px;
+}
+
+.state span {
+    font-size: 12px;
+
+    margin: 0 15px;
+}
+
+.state strong {
+    font-weight: 300;
+
+    text-shadow: 0 0 12px var(--gold);
+}
+
+.sub-state {
+    margin-top: 8px;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    opacity: 0.7;
+}
+
+
+/* =========================
+   WAVE
+========================= */
+
+.wave {
+    height: 70px;
+
+    margin-top: 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 4px;
+}
+
+.wave div {
+    width: 2px;
+
+    height: 20px;
+
+    background: var(--gold);
+
+    box-shadow: 0 0 8px var(--gold);
+
+    animation: wave 1.2s ease-in-out infinite alternate;
+}
+
+.wave div:nth-child(2n) {
+    animation-delay: 0.1s;
+}
+
+.wave div:nth-child(3n) {
+    animation-delay: 0.25s;
+}
+
+.wave div:nth-child(4n) {
+    animation-delay: 0.4s;
+}
+
+.wave div:nth-child(5n) {
+    animation-delay: 0.55s;
+}
+
+.awaiting {
+    margin-top: 8px;
+
+    font-size: 10px;
+
+    letter-spacing: 5px;
+
+    opacity: 0.6;
+}
+
+
+/* =========================
+   RIGHT SIDE
+========================= */
+
+.current {
+    text-align: center;
+}
+
+.current strong {
+    display: block;
+
+    font-size: 30px;
+
+    font-weight: 300;
+
+    margin-top: 15px;
+}
+
+.current p {
+    letter-spacing: 2px;
+}
+
+.mini-line {
+    width: 100%;
+
+    height: 1px;
+
+    background: var(--gold);
+
+    box-shadow: 0 0 8px var(--gold);
+}
+
+
+/* small waveform */
+
+.small-wave {
+    height: 55px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 4px;
+}
+
+.small-wave span {
+    width: 3px;
+
+    background: var(--gold);
+
+    box-shadow: 0 0 5px var(--gold);
+
+    animation: wave 0.8s ease-in-out infinite alternate;
+}
+
+.small-wave span:nth-child(1) {
+    height: 15px;
+}
+
+.small-wave span:nth-child(2) {
+    height: 25px;
+}
+
+.small-wave span:nth-child(3) {
+    height: 40px;
+}
+
+.small-wave span:nth-child(4) {
+    height: 28px;
+}
+
+.small-wave span:nth-child(5) {
+    height: 48px;
+}
+
+.small-wave span:nth-child(6) {
+    height: 32px;
+}
+
+.small-wave span:nth-child(7) {
+    height: 52px;
+}
+
+.small-wave span:nth-child(8) {
+    height: 35px;
+}
+
+.small-wave span:nth-child(9) {
+    height: 45px;
+}
+
+.small-wave span:nth-child(10) {
+    height: 25px;
+}
+
+.small-wave span:nth-child(11) {
+    height: 38px;
+}
+
+.small-wave span:nth-child(12) {
+    height: 15px;
+}
+
+
+/* response bars */
+
+.output-bars {
+    height: 55px;
+
+    display: flex;
+
+    align-items: end;
+
+    gap: 5px;
+}
+
+.output-bars span {
+    width: 7px;
+
+    background: var(--gold);
+
+    box-shadow: 0 0 7px var(--gold);
+
+    animation: bars 1s ease-in-out infinite alternate;
+}
+
+.output-bars span:nth-child(1) {
+    height: 20%;
+}
+
+.output-bars span:nth-child(2) {
+    height: 55%;
+}
+
+.output-bars span:nth-child(3) {
+    height: 35%;
+}
+
+.output-bars span:nth-child(4) {
+    height: 75%;
+}
+
+.output-bars span:nth-child(5) {
+    height: 45%;
+}
+
+.output-bars span:nth-child(6) {
+    height: 90%;
+}
+
+.output-bars span:nth-child(7) {
+    height: 60%;
+}
+
+.output-bars span:nth-child(8) {
+    height: 80%;
+}
+
+.output-bars span:nth-child(9) {
+    height: 45%;
+}
+
+.output-bars span:nth-child(10) {
+    height: 70%;
+}
+
+.output-bars span:nth-child(11) {
+    height: 35%;
+}
+
+.output-bars span:nth-child(12) {
+    height: 60%;
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotateReverse {
+    from {
+        transform: rotate(360deg);
+    }
+
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: scale(1.06);
+        opacity: 1;
+    }
+}
+
+@keyframes corePulse {
+    0%, 100% {
+        transform: scale(0.95);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+}
+
+@keyframes wave {
+    from {
+        transform: scaleY(0.4);
+    }
+
+    to {
+        transform: scaleY(1.8);
+    }
+}
+
+@keyframes bars {
+    from {
+        opacity: 0.4;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
