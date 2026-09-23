@@ -8,9 +8,12 @@ RESPONSES = {
     "hey": "Hey! How can I help you today?",
     "who are you": "I am ULTRON.",
     "how are you": "All systems are operational.",
+    "how r u": "All systems are operational.",
     "good morning": "Good morning.",
     "thank you": "You're welcome.",
     "good afternoon": "Good Afternoon",
+    "what's your name": "I am ULTRON.",
+    "what is your name": "I am ULTRON.",
 
 }
 
