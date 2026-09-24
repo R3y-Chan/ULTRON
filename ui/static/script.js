@@ -1,87 +1,58 @@
-function updateClock() {
+/* clock */
 
+function updateClock() {
     const now = new Date();
 
-    const time = now.toLocaleTimeString("en-GB", {
-        hour12: false
-    });
+    let hours = now.getHours();
+    let minutes = now.getMinutes();
 
-    const date = now.toLocaleDateString("en-GB", {
-        day: "2-digit",
-        month: "short",
-        year: "numeric"
-    }).toUpperCase();
+    let ampm = hours >= 12 ? "PM" : "AM";
 
-    document.getElementById("time").textContent = time;
-    document.getElementById("date").textContent = date;
+    hours = hours % 12;
+    hours = hours || 12;
+
+    hours = String(hours).padStart(2, "0");
+    minutes = String(minutes).padStart(2, "0");
+
+    document.getElementById("clock").textContent =
+        `${hours}:${minutes} ${ampm}`;
 }
-
-
-async function updateState() {
-
-    try {
-
-        const response = await fetch("/state");
-
-        const data = await response.json();
-
-        const state = data.state;
-
-        document.getElementById("state").textContent = state;
-        document.getElementById("right-state").textContent = state;
-
-
-        const message = document.getElementById("message");
-        const rightMessage = document.getElementById("right-message");
-
-
-        if (state === "LISTENING") {
-
-            message.textContent = "LISTENING...";
-            rightMessage.textContent = "LISTENING";
-
-        }
-
-        else if (state === "PROCESSING") {
-
-            message.textContent = "PROCESSING...";
-            rightMessage.textContent = "THINKING";
-
-        }
-
-        else if (state === "SPEAKING") {
-
-            message.textContent = "SPEAKING...";
-            rightMessage.textContent = "RESPONDING";
-
-        }
-
-        else if (state === "PLAYING") {
-
-            message.textContent = "PLAYING MUSIC...";
-            rightMessage.textContent = "PLAYING";
-
-        }
-
-        else {
-
-            message.textContent = "STANDING BY";
-            rightMessage.textContent = "STANDING BY";
-
-        }
-
-    }
-
-    catch (error) {
-
-        console.log("ULTRON backend unavailable.");
-
-    }
-}
-
 
 updateClock();
-updateState();
 
 setInterval(updateClock, 1000);
-setInterval(updateState, 250);
+
+
+/* SAMPLE PROMPTS */
+
+const samplePrompts = [
+    "Sample Prompt 1",
+    "Sample Prompt 2",
+    "Sample Prompt 3",
+    "Sample Prompt 4",
+    "Sample Prompt 5",
+    "Sample Prompt 6"
+];
+
+// you can add or subtract more just by adding more in the list btw
+
+const promptContainer = document.getElementById("sample-prompts");
+
+// Heading
+const heading = document.createElement("div");
+heading.classList.add("sample-heading");
+heading.textContent = "SAMPLE PROMPTS";
+promptContainer.appendChild(heading);
+
+// Prompts
+samplePrompts.forEach(prompt => {
+    const promptElement = document.createElement("div");
+
+    promptElement.classList.add("sample-prompt");
+    promptElement.textContent = prompt;
+
+    promptContainer.appendChild(promptElement);
+});
+
+
+

@@ -123,7 +123,7 @@ def play_next():
 
     return True
 
-
+#PEVIOUS SONG
 def play_previous():
     global current_song
     global current_player
@@ -148,7 +148,7 @@ def update():
     if not pygame.mixer.music.get_busy() and queue:
         play_next()
 
-
+#AYO STOP
 def stop_song():
     global current_player
 
@@ -164,14 +164,14 @@ def stop_song():
 
     current_player = None
 
-
+#AYO PAUSE 
 def pause_song():
     pygame.mixer.music.pause()
 
-
+#AYO RESUME
 def resume_song():
     pygame.mixer.music.unpause()
 
-
+#QUEUE
 def get_queue():
     return queue.copy()

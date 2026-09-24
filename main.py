@@ -4,6 +4,18 @@ from speech.voice import speak
 from brain.commands import check_command
 from datetime import datetime
 from brain.weather import get_weather
+import threading
+import webbrowser
+from ui.app import app
+from config import ASSISTANT_NAME
+
+
+def start_ui():
+    webbrowser.open("http://127.0.0.1:5000")
+    app.run(host="127.0.0.1", port=5000)
+
+#start the UI 
+threading.Thread(target=start_ui, daemon=True).start()
 
 from music.Player import (
     play_song,
@@ -17,7 +29,7 @@ from music.Player import (
 )
 
 
-print("Ultron Online...")
+print(f"{ASSISTANT_NAME} Online...")
 
 
 def main():

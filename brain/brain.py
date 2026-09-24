@@ -1,6 +1,6 @@
 import os
 import time
-
+from config import GEMINI_MODEL
 from .definations import DEFINITIONS
 from dotenv import load_dotenv
 from google import genai
@@ -13,7 +13,7 @@ client = genai.Client(
 )
 
 chat = client.chats.create(
-    model="gemini-2.5-flash"
+    model=GEMINI_MODEL
 )
 
 

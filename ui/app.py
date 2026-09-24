@@ -1,26 +1,13 @@
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template
+from config import UI_HOST, UI_PORT
 
 app = Flask(__name__)
 
-ultron_state = "IDLE"
-
 
 @app.route("/")
-def home():
+def index():
     return render_template("index.html")
 
 
-@app.route("/state")
-def state():
-    return jsonify({
-        "state": ultron_state
-    })
-
-
-def set_state(state):
-    global ultron_state
-    ultron_state = state
-
-
 if __name__ == "__main__":
-    app.run(host="127.0.0.1", port=5000, debug=False)
+    app.run(host=UI_HOST, port=UI_PORT)

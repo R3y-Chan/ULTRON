@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#04121d" />
+  <title>FRIDAY — Personal Assistant</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <canvas id="spaceCanvas"></canvas>
+    <div class="vignette"></div>
+    <div class="scanlines"></div>
+
+    <header class="topbar hud-line">
+      <div class="top-left">
+        <span class="tiny-brand">AGENTCORE</span>
+        <span class="tiny-dot"></span>
+      </div>
+
+      <div class="title-block">
+        <div class="title">FRIDAY <span class="spark">✦</span></div>
+        <div class="subtitle">PERSONAL ASSISTANT</div>
+      </div>
+
+      <div class="top-right clock-block">
+        <div id="clock">00:00:00</div>
+        <div id="date">25 SEP 2026</div>
+      </div>
+    </header>
+
+    <aside class="command-panel glass-panel">
+      <div class="panel-title">COMMANDS</div>
+      <div class="panel-rule"></div>
+      <div class="command-list">
+        <div class="command-item">WAKE UP FRIDAY</div>
+        <div class="command-item">WHAT TIME IS IT?</div>
+        <div class="command-item">SEARCH THE WEB</div>
+        <div class="command-item">SHOW ME THE CAMERA</div>
+        <div class="command-item">PLAY MUSIC</div>
+        <div class="command-item">RUN SYSTEM CHECK</div>
+        <div class="command-item">CONTROL LIGHTS</div>
+      </div>
+      <div class="panel-status">REFERENCE COMMANDS</div>
+    </aside>
+
+    <main class="main-stage">
+      <div class="orb-wrap" id="orbButton" title="Click the orb to activate / stop the microphone">
+        <canvas id="orbCanvas"></canvas>
+        <div class="orb-glow"></div>
+      </div>
+
+      <div class="state-row">
+        <span class="state-chevron">‹</span>
+        <span id="stateText">IDLE</span>
+        <span class="state-chevron">›</span>
+      </div>
+
+      <div class="wave-wrap">
+        <canvas id="waveCanvas"></canvas>
+      </div>
+    </main>
+
+    <aside class="transcript-panel glass-panel">
+      <div class="transcript-head">
+        <div>
+          <div class="panel-title">TRANSCRIPT</div>
+          <div id="micStatus" class="mic-status">MICROPHONE OFF</div>
+        </div>
+        <div class="rec-dot" id="recDot"></div>
+      </div>
+      <div class="panel-rule"></div>
+      <div id="transcriptLog" class="transcript-log">
+        <div class="transcript-empty">Voice transcript will appear here…</div>
+      </div>
+      <div class="transcript-footer">
+        <span id="engineStatus">WEB SPEECH API</span>
+        <span>CLICK ORB</span>
+      </div>
+    </aside>
+
+    <div class="prompt-hint">
+      <div class="hint-line"></div>
+      <div>
+        <div>CLICK ORB TO ACTIVATE</div>
+        <div>FRIDAY RESPONSE &nbsp;•&nbsp; LIVE TRANSCRIPT</div>
+      </div>
+    </div>
+
+    <div class="corner-mark">✦</div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

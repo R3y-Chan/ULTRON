@@ -1,4 +1,6 @@
 import re
+from config import ASSISTANT_NAME
+
 
 
 # Normal hard-coded responses
@@ -6,14 +8,14 @@ RESPONSES = {
     "hello": "Hello. How can I help you today?",
     "hi": "Hello. How can I help you today?",
     "hey": "Hey! How can I help you today?",
-    "who are you": "I am ULTRON.",
+    "who are you": f"I am {ASSISTANT_NAME}.",
+    "what's your name": f"I am {ASSISTANT_NAME}.",
+    "what is your name": f"I am {ASSISTANT_NAME}.",
     "how are you": "All systems are operational.",
     "how r u": "All systems are operational.",
     "good morning": "Good morning.",
     "thank you": "You're welcome.",
     "good afternoon": "Good Afternoon",
-    "what's your name": "I am ULTRON.",
-    "what is your name": "I am ULTRON.",
 
 }
 
